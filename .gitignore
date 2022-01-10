@@ -1,0 +1,13 @@
+# IDE
+.idea
+
+# Node
+node_modules
+
+# MacOS
+.DS_Store
+
+# Generated files
+.cache
+dist
+.parcel-cache
