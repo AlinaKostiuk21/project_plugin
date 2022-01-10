@@ -1,9 +1,7 @@
 let getIsRunning = document.currentScript.getAttribute('isRunning');
 
-function plugin (getIsRunning) {
+function plugin () {
     if (!getIsRunning) {
         return;
     }
 }
-
-
