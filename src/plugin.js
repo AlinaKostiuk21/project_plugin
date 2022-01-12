@@ -22,31 +22,35 @@
         addStyles();
 
         document.getElementById('plugin-open-dialog').addEventListener('click', openPopup);
-        document.getElementById('plugin-close-dialog-and-console').addEventListener('click', closePopupAndConsole);
+        document.getElementById('plugin-close-dialog-and-console').addEventListener('click', closePopupAndRunScript);
         document.getElementById('plugin-close-dialog').addEventListener('click', closePopup);
-    }
-
-    function addStyles () {
-        let newLink = document.createElement('link');
-        newLink.rel = 'stylesheet';
-        newLink.href = 'src/styles.css';
-        newLink.id = 'idward-styles';
-        document.body.appendChild(newLink);
     }
 
     function openPopup() {
         let element = document.getElementById('plugin-popup');
         element.style.display = 'block';
+        disableScrolling();
     }
 
     function closePopup() {
         let element = document.getElementById('plugin-popup');
         element.style.display = 'none';
+        enableScrolling();
     }
 
-    function closePopupAndConsole() {
+    function closePopupAndRunScript() {
         addScript();
         closePopup();
+    }
+
+    function disableScrolling () {
+        let x = window.scrollX;
+        let y = window.scrollY;
+        window.onscroll = function () { window.scrollTo(x, y) };
+    }
+
+    function enableScrolling () {
+        window.onscroll = function(){};
     }
 
     function addScript () {
@@ -58,5 +62,13 @@
         newScript.src = 'src/collect.js';
         newScript.id = 'idward-collect';
         document.body.appendChild(newScript);
+    }
+
+    function addStyles () {
+        let newLink = document.createElement('link');
+        newLink.rel = 'stylesheet';
+        newLink.href = 'src/styles.css';
+        newLink.id = 'idward-styles';
+        document.body.appendChild(newLink);
     }
 })();
