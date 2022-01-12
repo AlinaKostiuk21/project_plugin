@@ -20,6 +20,10 @@
             + '</div>';
         document.body.appendChild(newElement);
         addStyles();
+
+        document.getElementById('plugin-open-dialog').addEventListener('click', openPopup);
+        document.getElementById('plugin-close-dialog-and-console').addEventListener('click', closePopupAndConsole);
+        document.getElementById('plugin-close-dialog').addEventListener('click', closePopup);
     }
 
     function addStyles () {
@@ -28,5 +32,31 @@
         newLink.href = 'src/styles.css';
         newLink.id = 'idward-styles';
         document.body.appendChild(newLink);
+    }
+
+    function openPopup() {
+        let element = document.getElementById('plugin-popup');
+        element.style.display = 'block';
+    }
+
+    function closePopup() {
+        let element = document.getElementById('plugin-popup');
+        element.style.display = 'none';
+    }
+
+    function closePopupAndConsole() {
+        addScript();
+        closePopup();
+    }
+
+    function addScript () {
+        if (document.body.contains(document.getElementById('idward-collect'))) {
+            return;
+        }
+
+        let newScript = document.createElement('script');
+        newScript.src = 'src/collect.js';
+        newScript.id = 'idward-collect';
+        document.body.appendChild(newScript);
     }
 })();
