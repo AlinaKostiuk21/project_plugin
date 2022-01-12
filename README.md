@@ -20,12 +20,12 @@ The project used technologies: **JavaScript, HTML/CSS, scripts: parsel, deploy, 
 
 Fork and clone this repository.
 
-### `npm install` (or just `npm i`)
+**`npm install` (or just `npm i`)**
 Run in your terminal
 
 In the project directory, you can run:
 
-### `npm start`
+**`npm start`**
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
